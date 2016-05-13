@@ -3,38 +3,43 @@ require_relative 'node'
 class LinkedList
   def initialize
     @firstNode = nil
-    #@lastNode = nil
   end
 
   def insert_first(element)
-    if @firstNode == nil
-      @firstNode = Node.new(element)
-      p "First Node is" + @firstNode.to_s
-    else
-      tempNode = @firstNode
-      @firstNode = Node.new(element)
-      p "First Node is" + @firstNode.to_s
-      p @firstNode
+    p "Inserting First!!"
+    tempNode = @firstNode
+    @firstNode = Node.new(element)
+    unless @firstNode == nil
       @firstNode.insert_after(tempNode)
     end
+    p "First Node has " + @firstNode.element.to_s
   end
 
   def remove_first
-    if @firstNode == nil
+    p "Removing First!!"
+    node = @firstNode
+
+    return node if node == nil
+
+    if node.nextNode == nil
+      @firstNode = nil
     else
-      if @firstNode.nextNode == nil
-        node = @firstNode
-        @firstNode = nil
-        return node
-      else
-        node = @firstNode
-        @firstNode = @firstNode.nextNode
-        return node
-      end
+      node.remove_after
+      @firstNode = @firstNode.nextNode
     end
+    return node
   end
 
   def insert_last(element)
+    # find last node
+    previousNode = @firstNode
+    currentNode = @firstNode
+    until currentNode.nextNode == nil
+      previousNode = currentNode
+      currentNode = currentNode.nextNode
+    end
+
+    currentNode.insert_after(Node.new(element))
   end
 
   def remove_last
@@ -61,5 +66,4 @@ myLinkedList.insert_first("Uber")
 p myLinkedList.remove_first
 myLinkedList.insert_first("Uber")
 myLinkedList.insert_first("Skrr")
-p "Removing First Node!"
 p myLinkedList.remove_first
