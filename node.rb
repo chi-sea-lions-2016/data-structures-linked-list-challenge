@@ -1,6 +1,6 @@
 class Node
 
-  attr_accessor :pointer, :value
+  attr_reader :pointer, :value
 
   def initialize(element)
     @value = element
