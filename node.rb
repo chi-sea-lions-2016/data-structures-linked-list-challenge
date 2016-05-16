@@ -1,6 +1,7 @@
 class Node
 
-  attr_reader :pointer, :value
+  attr_accessor :pointer
+  attr_reader :value
 
   def initialize(element)
     @value = element
@@ -8,6 +9,7 @@ class Node
   end
 
   def insert_after(other_node)
+    other_node.pointer = @pointer
     @pointer = other_node
   end
 

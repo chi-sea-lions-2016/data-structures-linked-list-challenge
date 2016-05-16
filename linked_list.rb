@@ -8,12 +8,8 @@ class LinkedList
     @first = nil
   end
 
-  def find_first
-
-  end
-
   def insert_first(element)
-    element.remove_after
+
   end
 
 
