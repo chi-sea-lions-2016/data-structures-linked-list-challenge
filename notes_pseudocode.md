@@ -15,3 +15,9 @@ Inserting a new node:
 I tell that new node to point to the node that I am currently pointing to
 I change myself so that I'm pointing to the new node
 
+LAST NODE
+Does the list keep track of what it's last node is?
+NOTE AS CURRENTLY IMPLEMENTED
+How do I reassign the penultimate node as the last node?
+USING NODE'S METHODS
+How do I
